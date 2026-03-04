@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password, twoFactorCode = null) => {
     try {
       const response = await authAPI.login(email, password, twoFactorCode);
-      const { data } = response.data;
+      const { token, data } = response.data;
 
       // Check if 2FA is required
       if (response.data.requiresTwoFactor) {
@@ -40,10 +40,10 @@ export const AuthProvider = ({ children }) => {
       }
 
       // Store token and user data
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(data));
 
-      setToken(data.token);
+      setToken(token);
       setUser(data);
 
       toast.success('Login successful!');
