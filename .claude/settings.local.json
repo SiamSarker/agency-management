@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mongod:*)",
+      "Bash(mongo:*)",
+      "Bash(choco --version:*)",
+      "Bash(docker:*)",
+      "Bash(npm install:*)",
+      "Bash(npx create-react-app:*)",
+      "Bash(npm init:*)",
+      "Bash(npm run dev:*)"
+    ]
+  }
+}
